@@ -1,13 +1,31 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.awt.*;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+void main() {
+    ///
+    Azienda miaAzienda = new Azienda();
+
+    // creo gli oggetti dipendenti e poi uso i metodi dentro Azienda.java per inserirli
+    Dipendente impiegato = new Impiegato("Mario Rossi", 1500.0);
+    Dipendente manager = new Manager("Luigi Verdi", 2500.0, 600.0);
+    Dipendente venditore = new Venditore("Anna Neri", 1200.0, 10000.0, 5.0); // 5% di commissione sulle vendite
+    Dipendente stagista = new Stagista("Giovanni Gialli", 1400.0); // Il suo stipendio sarà dimezzato dalla classe Stagista
+
+    //METODO AGGIUNGI
+    miaAzienda.aggiungi(impiegato);
+    miaAzienda.aggiungi(manager);
+    miaAzienda.aggiungi(venditore);
+    miaAzienda.aggiungi(stagista);
+
+    //METODO STAMPA
+    System.out.println("DIPENDENTI:");
+    miaAzienda.stampaTutti();
+
+    //METODO TOTALE STIPENMDI
+    System.out.println("tot stipendi: " + miaAzienda.costoTotale());
+
+    //METODO PIU PAGATO
+    //DA CHIEDERE IL CLASSE COME FUNZIONA BENE PERCHE \
+    //QUEST'ULTIMO LO HA FATTO GEMINI IL MAIN MA NON LO HO CAPITO
+    Dipendente piup = miaAzienda.piuPagato();
+    System.out.println(piup);
 }
